@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" type="text/css" href="../GlobalAssets//css/SourceCode.css"/>
+    <link rel="stylesheet" type="text/css" href="./css//main.css"/>
+    <script src="./js/main.js"></script>
+
+    <title>Set Timer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <div class="number-container">
+                <button onclick="ChangeTime(this)" id="plus" for="hours" class="input-button">+</button>
+                <input oninput="OnTimeChange(this)" type="number" name="hours" id="hours" min="0" max="24" value="0">
+                <button onclick="ChangeTime(this)" id="minus" for="hours" class="input-button">-</button>
+            </div>
+            <div class="number-container">
+                <button onclick="ChangeTime(this)" id="plus" for="minutes" class="input-button">+</button>
+                <input oninput="OnTimeChange(this)" type="number" name="minutes" id="minutes" min="0" max="59" value="0">
+                <button onclick="ChangeTime(this)" id="minus" for="minutes" class="input-button">-</button>
+            </div>
+            <div class="number-container">
+                <button onclick="ChangeTime(this)" id="plus" for="seconds" class="input-button">+</button>
+                <input oninput="OnTimeChange(this)" type="number" name="seconds" id="seconds" min="0" max="59" value="0">
+                <button onclick="ChangeTime(this)" id="minus" for="seconds" class="input-button">-</button>
+            </div>
+        </div>
+        <button id="Submit" onclick="SetTime()">Set Timer</button>
+    </div>
+</body>
+</html>
