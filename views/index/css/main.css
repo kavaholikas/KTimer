@@ -34,7 +34,11 @@ button:hover {
     background: #50C878;
 }
 
-button#SetTimerButton {
+button#SetTimerButton, button#StopAlarmButton {
     margin-top: 2%;
     width: 270px;
+}
+
+.hidden {
+    display: none;
 }

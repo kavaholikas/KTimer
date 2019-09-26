@@ -1,7 +1,9 @@
 let TimerLength = 1000 * 60 * 25;
 let Timer = new CountdownTimer(TimerLength);
+let TimerAlarm = new Alarm();
 
 function HandleStartPauseButton() {
+    HandleStopAlarmButton();
     if (!Timer.TimerIsRunning) {
         Timer.Start(() => {
             Timer.Tick();
@@ -9,8 +11,7 @@ function HandleStartPauseButton() {
             Render();
 
             if (Timer.Done) {
-                let audio = new Audio("./assets/amen.wav");
-                audio.play();
+                TimerAlarm.Play();
             }
         });
     } else {
@@ -20,12 +21,18 @@ function HandleStartPauseButton() {
 }
 
 function HandleStopButton() {
+    HandleStopAlarmButton();
     Timer.Stop();
     Render();
 }
 
 function HandleSetTimerButton() {
+    HandleStopAlarmButton();
     CreateSetTimeWindow();
+}
+
+function HandleStopAlarmButton() {
+    TimerAlarm.Stop();
 }
 
 function SetTime(time) {

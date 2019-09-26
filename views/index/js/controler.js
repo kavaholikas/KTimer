@@ -25,6 +25,10 @@ function CreateSetTimeWindow() {
     setTimeWindow.setMenu(null);
     setTimeWindow.loadFile("./views/setTimer/index.html");
 
+    setTimeWindow.on("closed", () => {
+        setTimeWindow = null;
+    });
+
     ipcRenderer.on("SET_TIME_REPLY", (event, args) => {
         CloseSetTimeWindow();
         SetTime(args);
@@ -33,6 +37,7 @@ function CreateSetTimeWindow() {
 
 function CloseSetTimeWindow() {
     if (setTimeWindow !== null) {
+        setTimeWindow.close();
         setTimeWindow = null;
     }
 }
